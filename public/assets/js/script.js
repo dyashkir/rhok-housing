@@ -48,6 +48,17 @@ $(document).ready(function(){
         // var pointMarker;
 
         for (i=0;i<addresses.length;i++){
+            var latlon = new L.LatLng(addresses[i].lat, addresses[i].lon);
+	        var popupText = addresses[i].address;
+	        popupText = popUpText + "<br /><a href=\"addresses/details.html?id="+addresses[i].id+"\"> View details </a>");
+            var pointMarker = new L.Marker(latlon);
+            pointMarker.bindPopup(popupText);
+            citydatapoints.addLayer(pointMarker);
+        }
+        
+        /*
+        for (i=0;i<addresses.length;i++){
+            
             var pointMarker = new L.Marker(new L.LatLng(addresses[i].lat, addresses[i].lon)).bindPopup("Property Address.<br /><a href=\"addresses/\"+>View details.</a>");
             citydatapoints.addLayer(pointMarker);
         }
@@ -60,7 +71,7 @@ $(document).ready(function(){
         //        .addLayer(denverMarker)
         //        .addLayer(auroraMarker);
 
-        //
+        */
         var userdatapoints = new L.LayerGroup();
 
         userdatapoints.addLayer(littletonMarker1)
