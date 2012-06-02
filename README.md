@@ -3,8 +3,9 @@ rhok-housing
 
 Routes
 
-/addresses
-     [
+    /addresses
+     
+    [
     {
         "id": 1,
         "lat": "43.65",
