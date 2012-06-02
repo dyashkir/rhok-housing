@@ -1,108 +1,99 @@
+$(document).ready(function(){
 
 
-// initialize the map on the "map" div
-// var map = new L.Map('map');
 
-// create a CloudMade tile layer (or use other provider of your choice)
-// var cloudmade = new L.TileLayer('http://{s}.tile.cloudmade.com/eae6fac6c8324a20b7195cb899df7419/997/256/{z}/{x}/{y}.png', {
-//     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
-//     maxZoom: 18
-// });
+    $.getJSON("/addresses", function(addresses) {
 
+        // initialize the map on the "map" div
+        // var map = new L.Map('map');
 
-var toronto = new L.LatLng(43.6481, -79.4042); // geographical point (longitude and latitude)
-
-// add the CloudMade layer to the map set the view to a given center and zoom
-// map.addLayer(cloudmade);
-// map.setView(toronto, 13);
-
-// create a marker in the given location and add it to the map
-// var marker = new L.Marker(new L.LatLng(43.6481, -79.4242));
-// var marker2 = new L.Marker(new L.LatLng(43.6461, -79.4042));
-// var marker3 = new L.Marker(new L.LatLng(43.6491, -79.4142));
-// map.addLayer(marker);
-// map.addLayer(marker2);
-// map.addLayer(marker3);
+        // create a CloudMade tile layer (or use other provider of your choice)
+        var cloudmade = new L.TileLayer('http://{s}.tile.cloudmade.com/eae6fac6c8324a20b7195cb899df7419/997/256/{z}/{x}/{y}.png', {
+            attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+            maxZoom: 18
+        });
 
 
-// Layer groups
-
-var littletonMarker = new L.Marker(new L.LatLng(43.6481, -79.4242)).bindPopup("Property Address.<br /><a href=\"addresses/XXXXX\">View details.</a>"),
-    denverMarker = new L.Marker(new L.LatLng(43.6461, -79.4042)).bindPopup("Property Address.<br /><a href=\"addresses/XXXXX\">View details.</a>"),
-    auroraMarker = new L.Marker(new L.LatLng(43.6491, -79.4142)).bindPopup("Property Address.<br /><a href=\"addresses/XXXXX\">View details.</a>");
+        var toronto = new L.LatLng(43.6481, -79.4042); // geographical point (longitude and latitude)
 
 
-var littletonMarker1 = new L.Marker(new L.LatLng(43.6581, -79.4142)).bindPopup("Property Address.<br /><a href=\"addresses/XXXXX\">View details.</a>"),
-    denverMarker1 = new L.Marker(new L.LatLng(43.6561, -79.4142)).bindPopup("Property Address.<br /><a href=\"addresses/XXXXX\">View details.</a>"),
-    auroraMarker1 = new L.Marker(new L.LatLng(43.6591, -79.4242)).bindPopup("Property Address.<br /><a href=\"addresses/XXXXX\">View details.</a>");
-// var citydatapoints = new L.LayerGroup();
+        // Layer groups
 
-// citydatapoints.addLayer(littletonMarker)
-//            .addLayer(denverMarker)
-//            .addLayer(auroraMarker);
-
-// map.addLayer(citydatapoints);
+        var littletonMarker = new L.Marker(new L.LatLng(43.6481, -79.4242)).bindPopup("Property Address.<br /><a href=\"addresses/XXXXX\">View details.</a>"),
+            denverMarker = new L.Marker(new L.LatLng(43.6461, -79.4042)).bindPopup("Property Address.<br /><a href=\"addresses/XXXXX\">View details.</a>"),
+            auroraMarker = new L.Marker(new L.LatLng(43.6491, -79.4142)).bindPopup("Property Address.<br /><a href=\"addresses/XXXXX\">View details.</a>");
 
 
-// Layer control
-
-var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/eae6fac6c8324a20b7195cb899df7419/997/256/{z}/{x}/{y}.png',
-    cloudmadeAttribution = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
-    cloudmadeOptions = {maxZoom: 18, attribution: cloudmadeAttribution};
-
-var minimal = new L.TileLayer(cloudmadeUrl, cloudmadeOptions, {styleId: 22677}),
-    midnightCommander = new L.TileLayer(cloudmadeUrl, cloudmadeOptions, {styleId: 999});
-    // motorways = new L.TileLayer(cloudmadeUrl, cloudmadeOptions, {styleId: 46561});
-
-var citydatapoints = new L.LayerGroup();
-
-citydatapoints.addLayer(littletonMarker)
-       .addLayer(denverMarker)
-       .addLayer(auroraMarker);
-
-var userdatapoints = new L.LayerGroup();
-
-userdatapoints.addLayer(littletonMarker1)
-       .addLayer(denverMarker1)
-       .addLayer(auroraMarker1);
+        var littletonMarker1 = new L.Marker(new L.LatLng(43.6581, -79.4142)).bindPopup("Property Address.<br /><a href=\"addresses/XXXXX\">View details.</a>"),
+            denverMarker1 = new L.Marker(new L.LatLng(43.6561, -79.4142)).bindPopup("Property Address.<br /><a href=\"addresses/XXXXX\">View details.</a>"),
+            auroraMarker1 = new L.Marker(new L.LatLng(43.6591, -79.4242)).bindPopup("Property Address.<br /><a href=\"addresses/XXXXX\">View details.</a>");
 
 
-var map = new L.Map('map', {
-    center: toronto,
-    zoom: 13,
-    layers: [userdatapoints, citydatapoints]
+
+        // Layer control
+
+        var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/eae6fac6c8324a20b7195cb899df7419/997/256/{z}/{x}/{y}.png',
+            cloudmadeAttribution = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+            cloudmadeOptions = {maxZoom: 18, attribution: cloudmadeAttribution};
+
+        var minimal = new L.TileLayer(cloudmadeUrl, cloudmadeOptions, {styleId: 22677}),
+            midnightCommander = new L.TileLayer(cloudmadeUrl, cloudmadeOptions, {styleId: 999});
+
+        var citydatapoints = new L.LayerGroup();
+
+        // start loop
+        console.log(addresses);
+
+        // var citydatapoints = new L.LayerGroup();
+        // var pointMarker;
+
+        for (i=0;i<addresses.length;i++){
+            var pointMarker = new L.Marker(new L.LatLng(addresses[i].lat, addresses[i].lon)).bindPopup("Property Address.<br /><a href=\"addresses/\"+>View details.</a>");
+            citydatapoints.addLayer(pointMarker);
+        }
+        
+        // map.addLayer(citydatapoints);
+
+        //
+
+        // citydatapoints.addLayer(littletonMarker)
+        //        .addLayer(denverMarker)
+        //        .addLayer(auroraMarker);
+
+        //
+        var userdatapoints = new L.LayerGroup();
+
+        userdatapoints.addLayer(littletonMarker1)
+               .addLayer(denverMarker1)
+               .addLayer(auroraMarker1);
+
+
+        var map = new L.Map('map', {
+            center: toronto,
+            zoom: 13,
+            layers: [userdatapoints, citydatapoints]
+        });
+
+        var baseMaps = {
+            "Minimal": minimal,
+            "Night View": midnightCommander
+        };
+
+        var overlayMaps = {
+            "User Data": userdatapoints,
+            "City Data": citydatapoints
+        };
+
+        var layersControl = new L.Control.Layers(null, overlayMaps);
+
+        // map.addLayer(citydatapoints);
+        map.addLayer(cloudmade);
+        map.addControl(layersControl);
+
+        
+    });
+
+
+
 });
 
-var baseMaps = {
-    "Minimal": minimal,
-    "Night View": midnightCommander
-};
-
-var overlayMaps = {
-    "User Data": userdatapoints,
-    "City Data": citydatapoints
-};
-
-var layersControl = new L.Control.Layers(baseMaps, overlayMaps);
-
-// map.addLayer(citydatapoints);
-map.addControl(layersControl);
-
-
-
-// Circle
-
-circleOptions = {
-    color: '',
-    fillColor: '#f03',
-    fillOpacity: 0.2
-};
-
-var circle = new L.Circle(toronto, 5000, circleOptions);
-// map.addLayer(circle);
-// circle.bindPopup("I am a circle.");
-
-
-
-// attach a given HTML content to the marker and immediately open it
-// marker.bindPopup("Property Address.<br /><a href=\"#\">View details.</a>").openPopup();

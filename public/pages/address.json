@@ -1,0 +1,20 @@
+[
+	{
+		"id": 1,
+		"lat": "43.6461",
+		"lon": "-79.4042",
+		"address": "123 some sort of street"
+	},
+	{
+		"id": 2,
+		"lat": "43.6481",
+		"lon": "-79.4242",
+		"address": "123 some sort of street"
+	},
+	{
+		"id": 3,
+		"lat": "43.6781",
+		"lon": "-79.4642",
+		"address": "123 some sort of street"
+	}
+]
