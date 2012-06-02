@@ -3,6 +3,9 @@ rhok-housing
 
 Routes
 
+All addresses
+=============
+
     /addresses
      
     [
@@ -19,3 +22,8 @@ Routes
         "address": "123 some sort of street"
     }
     ]
+
+All incidents for specific address
+==================================
+
+    /addresses/<id>    
