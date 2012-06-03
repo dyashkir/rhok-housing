@@ -7,7 +7,7 @@ var express = require('express')
   , routes = require('./routes')
   , sqlite3 = require('sqlite3').verbose()
   , testDB = new sqlite3.Database('tester.db')
-  , db = new sqlite3.Database('investigations_v1.db3');
+  , db = new sqlite3.Database('investigations.db3');
 var app = module.exports = express.createServer();
 
 /*
