@@ -10,9 +10,13 @@ Hopefully this has the intended affect of more people bringing the issue to the 
 Platforms, Data, Technologies:
 City of Toronto Open Data:
 SQLite Database: http://www.sqlite.org/
+
 node.js: http://nodejs.org/
+
 Leaflet Javascript Mapping Library: http://leaflet.cloudmade.com/
+
 Twitter's Bootstrap framework: http://twitter.github.com/bootstrap/
+
 Cure web server hosting: http://cure.willsave.me/
 
 Live link:
