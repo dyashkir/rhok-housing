@@ -13,13 +13,13 @@ $(document).ready(function(){
         var city_data_points_options = {
             color: null,
             fillColor: 'blue',
-            fillOpacity: 1.0
+            fillOpacity: 0.6
         };
 
         var user_data_points_options = {
             color: null,
             fillColor: 'red',
-            fillOpacity: 1.0
+            fillOpacity: 0.6
         };
 
         var toronto = new L.LatLng(43.6481, -79.4042); // geographical point (longitude and latitude)
@@ -46,9 +46,9 @@ $(document).ready(function(){
         var denverMarker1 = new L.Marker(new L.LatLng(43.6561, -79.4142)).bindPopup("Property Address.<br /><a href=\"addresses/XXXXX\">View details.</a>");
         var auroraMarker1 = new L.Marker(new L.LatLng(43.6591, -79.4242)).bindPopup("Property Address.<br /><a href=\"addresses/XXXXX\">View details.</a>");
 
-        var user_data_point1 = new L.Circle(new L.LatLng(43.6581, -79.4142), 80, user_data_points_options).bindPopup("Property Address.<br /><a href=\"addresses/XXXXX\">View details.</a>");
-        var user_data_point2 = new L.Circle(new L.LatLng(43.6561, -79.4142), 80, user_data_points_options).bindPopup("Property Address.<br /><a href=\"addresses/XXXXX\">View details.</a>");
-        var user_data_point3 = new L.Circle(new L.LatLng(43.6591, -79.4242), 80, user_data_points_options).bindPopup("Property Address.<br /><a href=\"addresses/XXXXX\">View details.</a>");
+        var user_data_point1 = new L.Circle(new L.LatLng(43.6581, -79.4142), 60, user_data_points_options).bindPopup("Property Address.<br /><a href=\"addresses/XXXXX\">View details.</a>");
+        var user_data_point2 = new L.Circle(new L.LatLng(43.6561, -79.4142), 60, user_data_points_options).bindPopup("Property Address.<br /><a href=\"addresses/XXXXX\">View details.</a>");
+        var user_data_point3 = new L.Circle(new L.LatLng(43.6591, -79.4242), 60, user_data_points_options).bindPopup("Property Address.<br /><a href=\"addresses/XXXXX\">View details.</a>");
 
         userdatapoints.addLayer(user_data_point1)
                .addLayer(user_data_point2)
@@ -59,7 +59,7 @@ $(document).ready(function(){
             var city_data_points_loc = new L.LatLng(addresses[i].lat, addresses[i].lon);
             var popupText = addresses[i].line;
             popupText = popupText + '<br /><a href="report_toronto.html?id='+addresses[i].id+'"> View details </a>';
-            var city_data_point = new L.Circle(city_data_points_loc, 80, city_data_points_options);
+            var city_data_point = new L.Circle(city_data_points_loc, 60, city_data_points_options);
             city_data_point.bindPopup(popupText);
             citydatapoints.addLayer(city_data_point);
         }
