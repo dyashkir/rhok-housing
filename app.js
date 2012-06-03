@@ -7,7 +7,7 @@ var express = require('express')
   , routes = require('./routes')
   , sqlite3 = require('sqlite3').verbose()
   , testDB = new sqlite3.Database('tester.db')
-  , db = new sqlite3.Database('investigations.db3');
+  , db = new sqlite3.Database('investigations_v1.db3');
 var app = module.exports = express.createServer();
 
 /*
@@ -80,12 +80,12 @@ app.get('/addresses', function(req, res){
     if (err){
       console.log(err);
     }else{
-      //  console.log(row.rowid + ": " + row.line + " lat:" + row.lat + " lon " + row.lon);
+      console.log(row.rowid + ": " + row.line + " lat:" + row.lat + " lon " + row.lon);
     }
-    row.lat = 43.64 + count*0.01;
-    row.lon = -79.39 + count*0.01;
+    //row.lat = 43.64 + count*0.00001;
+    //row.lon = -79.39 + count*0.00001;
     count++;
-    if(count<100){
+    if (row.lat != -1){
       mockup.push(row);
     }
   },
