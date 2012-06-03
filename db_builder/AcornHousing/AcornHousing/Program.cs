@@ -40,11 +40,18 @@ namespace AcornHousing
 
                 IGeoCoder geoCoder = new GoogleGeoCoder("42");
 
+                int NumDeficienciesRead = 0;
+
                 using (XmlReader reader = XmlReader.Create(new FileStream(@"../../investigation.xml", FileMode.Open)))
                 {
-                    while (reader.ReadToFollowing("INVESTIGATION"))
+                    while (reader.ReadToFollowing("INVESTIGATION")/* && NumDeficienciesRead < 100*/)
                     {
                         ReadInvestigation(reader.ReadSubtree(), cmd, geoCoder);
+                        NumDeficienciesRead++;
+                        if (NumDeficienciesRead % 100 == 0)
+                        {
+                            Console.WriteLine(NumDeficienciesRead.ToString());
+                        }
                     }
 
                 }
@@ -221,12 +228,13 @@ namespace AcornHousing
             {
                 foreach(Deficiency curDeficiency in deficiencyList)
                 {
-                    cmd.CommandText = "INSERT INTO Address VALUES(" +
-                        investigationId.ToString() + "\", " +
+                    cmd.CommandText = "INSERT INTO Deficiencies VALUES(" +
+                        investigationId.ToString() + ", " +
                         "\"" + curDeficiency.location + "\", " +
-                        "\"" + curDeficiency.description + "\", " +
-                        "\"" + curDeficiency.status + 
+                        "\"" + curDeficiency.description.Replace('"', '\'') + "\", " +
+                        "\"" + curDeficiency.status + "\"" +
                         ")";
+                    cmd.ExecuteNonQuery();
                 }
             }
         }
