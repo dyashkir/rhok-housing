@@ -49,8 +49,8 @@ $(document).ready(function(){
 
         for (i=0;i<addresses.length;i++){
             var latlon = new L.LatLng(addresses[i].lat, addresses[i].lon);
-	        var popupText = addresses[i].address;
-	        popupText = popUpText + "<br /><a href=\"addresses/details.html?id="+addresses[i].id+"\"> View details </a>");
+	        var popupText = addresses[i].line;
+	        popupText = popupText + '<br /><a href="report_toronto.html?id='+addresses[i].id+'"> View details </a>';
             var pointMarker = new L.Marker(latlon);
             pointMarker.bindPopup(popupText);
             citydatapoints.addLayer(pointMarker);

@@ -80,18 +80,39 @@ app.get('/addresses', function(req, res){
     if (err){
       console.log(err);
     }else{
-      //  console.log(row.rowid + ": " + row.line + " lat:" + row.lat + " lon " + row.lon);
+      console.log(row.id + ": " + row.line + " lat:" + row.lat + " lon " + row.lon);
     }
-    row.lat = 43.64 + count*0.01;
-    row.lon = -79.39 + count*0.01;
+    //row.lat = 43.64 + count*0.00001;
+    //row.lon = -79.39 + count*0.00001;
     count++;
-    if(count<100){
+    if (row.lat != -1 && count <100){
       mockup.push(row);
     }
   },
   function(){
     res.send(mockup);
   });
+});
+
+app.get('/addresses/:id', function(req, res){
+  
+  var junk = [{
+    description : 'Rats rats rats! so many rats running around everywhere!!!'
+  , address : '235 King St'
+  , location : 'First floor '
+  , status : 'open'
+  , date : 'May 1, 2012'
+  },
+  {
+    description : 'Toilet leaking from top floor'
+  , address : '235 King St'
+  , location : 'Second floor'
+  , status : 'open'
+  , date : 'February 1, 2012'
+  }];
+
+  res.send(junk);
+
 });
 
 app.listen(3000, function(){
