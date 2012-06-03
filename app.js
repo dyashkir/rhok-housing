@@ -80,12 +80,12 @@ app.get('/addresses', function(req, res){
     if (err){
       console.log(err);
     }else{
-      console.log(row.rowid + ": " + row.line + " lat:" + row.lat + " lon " + row.lon);
+      console.log(row.id + ": " + row.line + " lat:" + row.lat + " lon " + row.lon);
     }
     //row.lat = 43.64 + count*0.00001;
     //row.lon = -79.39 + count*0.00001;
     count++;
-    if (row.lat != -1){
+    if (row.lat != -1 && count <100){
       mockup.push(row);
     }
   },
