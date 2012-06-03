@@ -1,6 +1,13 @@
-.test {
-	
+#map {
+	/*z-index: -9999;*/
+	height: 100%;
 }
-.test {
-	
+
+body, html {
+	height: 100%;
+}
+
+#container {
+	min-height: 100%;
+	width: 100%;
 }
