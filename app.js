@@ -94,6 +94,27 @@ app.get('/addresses', function(req, res){
   });
 });
 
+app.get('/addresses/:id', function(req, res){
+  
+  var junk = [{
+    description : 'Rats rats rats! so many rats running around everywhere!!!'
+  , address : '235 King St'
+  , location : 'First floor '
+  , status : 'open'
+  , date : 'May 1, 2012'
+  },
+  {
+    description : 'Toilet leaking from top floor'
+  , address : '235 King St'
+  , location : 'Second floor'
+  , status : 'open'
+  , date : 'February 1, 2012'
+  }];
+
+  res.send(junk);
+
+});
+
 app.listen(3000, function(){
   console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
 });
