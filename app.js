@@ -85,7 +85,7 @@ app.get('/addresses', function(req, res){
     //row.lat = 43.64 + count*0.00001;
     //row.lon = -79.39 + count*0.00001;
     count++;
-    if (row.lat != -1 && count <100){
+    if (row.lat != -1 && count <10000){
       mockup.push(row);
     }
   },
@@ -96,7 +96,7 @@ app.get('/addresses', function(req, res){
 
 app.get('/addresses/:id', function(req, res){
   
-  var junk = [{
+  /*var junk = [{
     description : 'Rats rats rats! so many rats running around everywhere!!!'
   , address : '235 King St'
   , location : 'First floor '
@@ -110,8 +110,24 @@ app.get('/addresses/:id', function(req, res){
   , status : 'open'
   , date : 'February 1, 2012'
   }];
-
-  res.send(junk);
+*/
+  var mockup = [];
+  var count = 0;
+  db.each("SELECT * FROM Deficiencies WHERE investigationId IN (SELECT ROWID FROM Investigation WHERE addressId = ?);"
+    , req.params.id
+    ,function(err, row) {
+    if (err){
+      console.log(err);
+    }else{
+      console.log(JSON.stringify(row));
+    }
+    row.address = '12 King St';
+    row.date = 'March 12, 2012';
+    mockup.push(row);
+  },
+  function(){
+    res.send(mockup);
+  });
 
 });
 
