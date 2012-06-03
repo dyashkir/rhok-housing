@@ -3,7 +3,7 @@ $(document).ready(function(){
     var local_data = "address.json";
     var remote_data = "/addresses";
 
-    $.getJSON(local_data, function(addresses) {
+    $.getJSON(remote_data, function(addresses) {
         // console.log(addresses);
         // style ids
         // 41036
@@ -57,7 +57,7 @@ $(document).ready(function(){
         // City Data (start loop)
         for (i=0;i<addresses.length;i++){
             var city_data_points_loc = new L.LatLng(addresses[i].lat, addresses[i].lon);
-            var popupText = addresses[i].address;
+            var popupText = addresses[i].line;
             popupText = popupText + '<br /><a href="report_toronto.html?id='+addresses[i].id+'"> View details </a>';
             var city_data_point = new L.Circle(city_data_points_loc, 80, city_data_points_options);
             city_data_point.bindPopup(popupText);

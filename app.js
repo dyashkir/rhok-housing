@@ -85,7 +85,7 @@ app.get('/addresses', function(req, res){
     //row.lat = 43.64 + count*0.00001;
     //row.lon = -79.39 + count*0.00001;
     count++;
-    if (row.lat != -1 && count <100){
+    if (row.lat != -1 && count <10000){
       mockup.push(row);
     }
   },
