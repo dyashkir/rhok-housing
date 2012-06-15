@@ -1,34 +1,44 @@
-Random Hack of Kindness Toronto ACORN housing project
-============
-Project Brief:
-To develop an interactive mapping platform that would overlay municipal apartment inspection data with user & organizational contributed data with the goal of growing the number of low income tenants involved in campaigns for fair housing. 
+# Random Hacks of Kindness Toronto ACORN Fair Housing Project
 
-Due to the fact that the dataset is somewhat limited, the second portion of the solution we put forward was to augment this data set with user contributed data. This will bey a key part in helping ACORN achieve their objectives, as providing an insight into what needs to be done, and clearly isn't, can serve as a sort of embarrassment for the city. More so if/when paired with an awareness campaign that directs people to the site to get a better idea of how bad the housing situation is.
+---
 
-Hopefully this has the intended affect of more people bringing the issue to the attention of city officials and subsequently getting more inspections and work orders done.
+## Description
 
-Platforms, Data, Technologies:
-City of Toronto Open Data:
-SQLite Database: http://www.sqlite.org/
+An interactive map that plots apartment inspection data from multiple data sources. The first data set being the [Municipal Licensing & Standards, Investigative Services](http://www.toronto.ca/investigationactivity/index.htm) from [Toronto City Open Data](http://toronto.ca/open) and the second from a user contributed system we built in conjunction with [ACORN Canada](http://www.acorncanada.org/).
 
-node.js: http://nodejs.org/
+## Project Goals
 
-Leaflet Javascript Mapping Library: http://leaflet.cloudmade.com/
+The aim is to provide an insight into what is being done, what isn't and what needs to be by visualising the available data, ultimately leading to a more effective solution being developed for getting inspections and work orders completed.
 
-Twitter's Bootstrap framework: http://twitter.github.com/bootstrap/
+- Make deficiency report data publicly available, and display in a meaningful and accessible format
+- Allow tenants to report deficiencies via simple and user-friendly web form
+- Create awareness for issues of inadequate housing, improve housing standards, set stronger enforcements
 
-Cure web server hosting: http://cure.willsave.me/
+## Future Directions
 
-Live link:
-http://108.166.97.76/pages/map.html
+- Improved filtering and display of map data (open/closed status, date ranges, etc.)
+- Bidirectional SMS Communication (Twilio, OneAPI, etc.)
+- Compliance to and two-way integration with Open 311 Report Standards
+- Search for specific property or using criteria
+
+## Demo URL:
+
+[http://108.166.97.76/pages/map.html](http://108.166.97.76/pages/map.html)
+
+## Platforms, Data, Technologies:
+
+- City of Toronto Open Data [http://toronto.ca/open](http://toronto.ca/open)
+- SQLite3 [http://www.sqlite.org/](http://www.sqlite.org/)
+- Node.js [http://nodejs.org/](http://nodejs.org/)
+- Leaflet Javascript Mapping Library [http://leaflet.cloudmade.com/](http://leaflet.cloudmade.com/)
+- Twitter Bootstrap [http://twitter.github.com/bootstrap/](http://twitter.github.com/bootstrap/)
+- Cure web server hosting [http://cure.willsave.me/](http://cure.willsave.me/)
 
 
+## API
 
-API
-===
+### All addresses
 
-All addresses
-=============
 
     /addresses
     
@@ -57,47 +67,11 @@ All addresses
         "lat": 43.64,
         "lon": -79.39,
         "line": "Toronto something"
-    },
-    {
-        "id": 5,
-        "lat": 43.64,
-        "lon": -79.39,
-        "line": "Toronto something"
-    },
-    {
-        "id": 6,
-        "lat": 43.64,
-        "lon": -79.39,
-        "line": "Toronto something"
-    },
-    {
-        "id": 7,
-        "lat": 43.64,
-        "lon": -79.39,
-        "line": "Toronto something"
-    },
-    {
-        "id": 8,
-        "lat": 43.64,
-        "lon": -79.39,
-        "line": "Toronto something"
-    },
-    {
-        "id": 9,
-        "lat": 43.64,
-        "lon": -79.39,
-        "line": "Toronto something"
-    },
-    {
-        "id": 10,
-        "lat": 43.64,
-        "lon": -79.39,
-        "line": "Toronto something"
     }
     ]
 
-All incidents for specific address
-==================================
+### All incidents for specific address
+
 
     /addresses/<id>  
 
