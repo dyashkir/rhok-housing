@@ -1,7 +1,5 @@
 # Random Hacks of Kindness Toronto ACORN Fair Housing Project
 
----
-
 ## Description
 
 An interactive map that plots apartment inspection data from multiple data sources. The first data set being the [Municipal Licensing & Standards, Investigative Services](http://www.toronto.ca/investigationactivity/index.htm) from [Toronto City Open Data](http://toronto.ca/open) and the second from a user contributed system we built in conjunction with [ACORN Canada](http://www.acorncanada.org/).
